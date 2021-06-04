@@ -1,0 +1,19 @@
+<!--pages/index/detailTZ.wxml-->
+
+<wxs src="../../comomLib/common.wxs" module="common" />
+
+<view class="project-list">
+    <block wx:for="{{ rList }}" wx:for-item="item" wx:key="_id" wx:for-index="index">
+        <wux-cell-group>
+            <wux-cell thumb="{{item.thumb}}" data-item="{{item}}">
+                {{ common.isAnony(uDict[item.authorid].username) }}
+                {{index}}楼 {{item['postdate']}}
+                <wux-divider position="left" />
+
+                {{item['subject']}}
+                <rich-text nodes=" {{ common.fixPicAddr(item['content']) }}"></rich-text>
+                <wux-white-space></wux-white-space>
+            </wux-cell>
+        </wux-cell-group>
+    </block>
+</view>

@@ -1,0 +1,59 @@
+<!--pages/personal/personal.wxml-->
+
+<wux-tabs theme="calm" scroll wux-class="bordered" controlled current="{{ key }}" bindchange="onTabsChange">
+    <block wx:for="{{ tabs }}" wx:key="key">
+        <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
+    </block>
+</wux-tabs>
+
+<view class="input">
+    <block wx:if="{{ current.key == 'token' }}">
+        <wux-cell-group title="cookie">
+            <wux-cell>
+                <wux-textarea disabled rows="3" defaultValue="格式如下\n ngaPassportUid=111111;ngaPassportCid=xxxxxxxx  " />
+            </wux-cell>
+            <wux-cell>
+                <wux-textarea bind:change="onChange" rows="3" defaultValue="{{ cookie }}" placeholder="Input yours" />
+            </wux-cell>
+        </wux-cell-group>
+
+        <wux-wing-blank size="default">
+            <wux-button bindtap="save" block type="positive">保 存
+            </wux-button>
+        </wux-wing-blank>
+    </block>
+
+    <block wx:else>
+        <wux-form id="wux-form">
+            <wux-cell-group title="登陆">
+                <wux-cell hover-class="none">
+                    <wux-field name="username" type="text" value='1111'>
+                        <wux-input label="用户名：" placeholder="输入用户名" />
+                    </wux-field>
+                </wux-cell>
+                <wux-cell hover-class="none">
+                    <wux-field name="password" type="text" value='22222'>
+                        <wux-input label="密码：" placeholder="输入密码" password>
+                        </wux-input>
+                    </wux-field>
+                </wux-cell>
+                <wux-cell hover-class="none">
+                    <wux-field name="code" type="text">
+                        <wux-input label="验证码：" placeholder="输入验证码" defaultValue="">
+                        </wux-input>
+                    </wux-field>
+                </wux-cell>
+
+                <wux-cell hover-class="none">
+                    <image bindtap="changeCode" class="codePic" src="{{ login_code_pic }}"></image>
+                </wux-cell>
+
+            </wux-cell-group>
+
+            <wux-wing-blank size="default">
+                <wux-button bindtap="submit" block type="positive">登 陆
+                </wux-button>
+            </wux-wing-blank>
+        </wux-form>
+    </block>
+</view>

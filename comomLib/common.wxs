@@ -1,0 +1,165 @@
+function getDays(timeFrom, timeTo) {
+    return (timeTo - timeFrom) / 1000 / 3600 / 24 + 1;
+}
+
+
+function isOverdue(time) {
+    return getDate().getTime() > time;
+}
+
+function timeAdd0(n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+}
+
+function formatYYMMDDHHmmSS(ts) {
+    var d = getDate(parseInt(ts))
+    return [d.getFullYear(), timeAdd0(d.getMonth() + 1), timeAdd0(d.getDate())].join('-') +
+        ' ' + [timeAdd0(d.getHours()), timeAdd0(d.getMinutes()), timeAdd0(d.getSeconds())].join(':')
+}
+
+function formatYYMMDD(ts) {
+    var d = getDate(parseInt(ts))
+    return [d.getFullYear(), timeAdd0(d.getMonth() + 1), timeAdd0(d.getDate())].join('-')
+}
+
+function formatHHmmSS(ts) {
+    var d = getDate(parseInt(ts));
+    return [timeAdd0(d.getHours()), timeAdd0(d.getMinutes()), timeAdd0(d.getSeconds())].join(':');
+}
+
+
+function checkStrNull(str) {
+    str = ((str == "undefined") ? undefined : str)
+    return str;
+}
+
+function getDictByKey(key, dict) {
+    if (key == undefined) return "未知";
+    return dict[key.toString()] ? dict[key.toString()] : "未知";
+}
+
+function getFirstPic(pics) {
+    if (pics) {
+        return pics.split(",")[0];
+    }
+    return;
+}
+
+function coverStr(str) {
+    return str ? str : "无";
+}
+
+function picStr2List(str) {
+    if (str) {
+        // if (str.indexOf(",") != -1) {
+        return str.split(",");
+        // }
+        // return str;
+    } else {
+        return [];
+    }
+}
+
+function strIsNull(str) {
+    if (typeof str == "undefined" || str == null || str == "") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function numToStr(num) {
+    return num.toString();
+}
+
+function isImage(file) {
+    return new RegExp('(\.|\/)(gif|png|jpg|jpeg)$').test(file);
+}
+
+function isVideo(file) {
+    return new RegExp('(\.|\/)(avi|rmvb|rm|asf|divx|mpeg|mp4|mpe|wmv|mkv)$').test(file);
+}
+
+function isDoc(file) {
+    return new RegExp('(\.|\/)(avi|rmvb|rm|asf|divx|mpeg|mp4|mpe|wmv|mkv)$').test(file);
+}
+
+function fixName(name) {
+    if (name.indexOf('#anony_') >= 0) {
+        return "匿名用户" + name.substring(-4);
+    }
+
+    if (getLength(name) > 14) {
+        return subStrNum(name, 12);
+    }
+    return name;
+}
+
+function fixPicAddr(content) {
+    content = content.replace(getRegExp('\[img\]http', 'g'), '<img  style="max-width:100%;height:auto" src="http');
+
+    content = content.replace(getRegExp('\[img\]\.', 'g'), '<img  style="max-width:100%;height:auto" src="https://img.nga.178.com/attachments');
+    content = content.replace(getRegExp('\[\/img\]', 'g'), '"/>');
+    // console.log(content)
+    return content;
+}
+
+function getLength(str) {
+    var strLength = 0; // 记录str的总长度
+    var Len = str.length;
+    for (var i = 0; i < Len; i++) {
+        var charCode = str.charCodeAt(i); // 使用charCodeAt返回单个字符的Unicode编码
+        if (charCode >= 0 && charCode <= 128) {
+            strLength++; //英文字符加1
+        } else {
+            strLength = strLength + 2; //中文字符加2
+        }
+    }
+    return strLength;
+}
+
+function subStrNum(str, len) {
+    var strLen = str.length;
+    var strCut = '';
+    var strLength = 0;
+    for (var i = 0; i < strLen; i++) {
+        var charStr = str.charAt(i); //使用charAt获取单个字符；
+        strLength++
+        if (encodeURI(charStr).length > 4) { //使用encodeURI获取编码长度
+            strLength++;
+        }
+        strCut = strCut.concat(charStr); //单个字符进行合并
+        if (strLength >= len) {
+            strCut = strCut.concat('...') //大于指定长度后合并'...'并返回此字符串
+            return strCut;
+        }
+
+    }
+    if (strLength < len) {
+        return str
+    }
+}
+
+
+module.exports = {
+    formatYYMMDD: formatYYMMDD,
+    formatYYMMDDHHmmSS: formatYYMMDDHHmmSS,
+    formatHHmmSS: formatHHmmSS,
+
+    checkStrNull: checkStrNull,
+    fixName: fixName,
+    getDays: getDays,
+    fixPicAddr: fixPicAddr,
+    isOverdue: isOverdue,
+    getFirstPic: getFirstPic,
+    coverStr: coverStr,
+    picStr2List: picStr2List,
+
+
+    strIsNull: strIsNull,
+    isImage: isImage,
+
+    numToStr: numToStr,
+
+}

@@ -1,0 +1,29 @@
+/**index.wxss**/
+
+@import '../../miniprogram_npm/wux-weapp/styles/index.wxss';
+
+.subject {
+  font-size: 38rpx;
+  color: #333;
+  padding-bottom: 20rpx;
+}
+
+.author {
+  display: flex;
+  align-items: left;
+  font-size: 28rpx;
+  color: #aaa;
+}
+
+.author .left {
+  width: 220rpx;
+}
+
+.author .center {
+  flex: 1;
+}
+
+.author .right {
+  text-align: right;
+  width: 220rpx;
+}

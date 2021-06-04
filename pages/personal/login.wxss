@@ -1,0 +1,14 @@
+/* pages/personal/personal.wxss */
+
+
+.input {
+    margin-top: 50rpx;
+}
+
+.codePic {
+    width: 500rpx;
+    height: 300rpx;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}

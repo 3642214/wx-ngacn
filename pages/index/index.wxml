@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<wxs src="../../comomLib/common.wxs" module="common" />
+
+<view class="wux-light--bg">
+    <wux-cell-group title="帖子">
+        <block wx:for="{{ tzList }}" wx:for-item="item" wx:key="_id">
+            <wux-cell thumb="{{item.thumb}}" data-item="{{item}}" is-link bind:click="tzTap">
+                <view class="subject"> {{item['subject']}}</view>
+
+                <view class="author">
+                    <span class="left">{{ common.fixName(item['author'])}}</span>
+                    <wux-timeago class="center" to="{{ item['postdate']*1000 }}" />
+                    <span class="right">{{ common.fixName(item['lastposter']) }}</span>
+                </view>
+
+            </wux-cell>
+        </block>
+    </wux-cell-group>
+</view>
+
+
+<wux-dialog id="wux-dialog" />
+<wux-dialog id="wux-dialog--alert" />
