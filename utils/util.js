@@ -272,13 +272,16 @@ function getLoginCode(code) {
 
 function getCookieUid() {
     let str = getApp().globalData.cookie;
+    if (str.length == 0) {
+        return "";
+    }
 
     let uid = str.match(/ngaPassportUid=(\S*);/);
     if (uid) {
         return uid[1];
     }
-    
-    uid =  str.match(/ngaPassportUid=(\S*)$/)[1];
+
+    uid = str.match(/ngaPassportUid=(\S*)$/)[1];
     return uid;
 }
 

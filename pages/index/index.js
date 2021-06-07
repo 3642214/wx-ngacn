@@ -11,7 +11,8 @@ import {
 Page({
   data: {
     indexPage: 1,
-    tzList: []
+    tzList: [],
+    dialog: null
   },
 
   onLoad: function (options) {
@@ -30,8 +31,9 @@ Page({
     }
   },
   onShow() {
+    let self = this;
     if (!app.globalData.cookie) {
-      $wuxDialog().open({
+      self.data.dialog = $wuxDialog().open({
         maskClosable: false,
         resetOnClose: true,
         zIndex: 0,
@@ -47,6 +49,14 @@ Page({
           }
         }, ],
       })
+    } else {
+      if (self.data.dialog) {
+        self.data.dialog();
+        self.data.dialog = null;
+      }
+      if (self.data.tzList.length == 0) {
+        self.fresh();
+      }
     }
   },
   /**

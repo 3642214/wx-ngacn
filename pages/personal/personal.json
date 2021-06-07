@@ -9,6 +9,7 @@
     "wux-row": "../../miniprogram_npm/wux-weapp/row/index",
     "wux-col": "../../miniprogram_npm/wux-weapp/col/index",
     "wux-cell-group": "../../miniprogram_npm/wux-weapp/cell-group/index",
+    "wux-button": "../../miniprogram_npm/wux-weapp/button/index",
     "wux-cell": "../../miniprogram_npm/wux-weapp/cell/index",
     "wux-segmented-control": "../../miniprogram_npm/wux-weapp/segmented-control/index",
     "wux-timeago": "../../miniprogram_npm/wux-weapp/timeago/index",

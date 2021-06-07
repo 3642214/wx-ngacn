@@ -18,22 +18,33 @@ Page({
      */
     onLoad: function (options) {
 
-        util.sendTextGet(`${api.NUKE_URL}`, {
-            __lib: 'ucp',
-            __output: '14',
-            __act: 'get',
-            uid: util.getCookieUid()
-
-        }).then(res => {
-            this.setData({
-                userInfo: res.result[0]
-            })
-            console.log(JSON.stringify(res))
-
-        }).catch(ret => {
-            util.showErrToast(`${JSON.stringify(ret)}`)
-        })
 
     },
+    onShow() {
+        this.fresh();
+    },
+    fresh() {
+        if (app.globalData.cookie) {
+            util.sendTextGet(`${api.NUKE_URL}`, {
+                __lib: 'ucp',
+                __output: '14',
+                __act: 'get',
+                uid: util.getCookieUid()
 
+            }).then(res => {
+                this.setData({
+                    userInfo: res.result[0]
+                })
+                console.log(JSON.stringify(res))
+
+            }).catch(ret => {
+                util.showErrToast(`${JSON.stringify(ret)}`)
+            })
+        }
+    },
+    go2login() {
+        wx.navigateTo({
+            url: './login',
+        })
+    }
 })
