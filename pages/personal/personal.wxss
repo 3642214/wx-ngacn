@@ -1,1 +1,148 @@
-/* pages/personal/personal.wxss */
+@charset "UTF-8";
+page {
+  color: #333;
+  background-color: #f5f5f5;
+  font-size: 28rpx;
+}
+
+.pull-right {
+  text-align: right;
+}
+
+/**
+ * 工具栏样式
+ */
+.yms-btns .title {
+  font-size: 34rpx;
+}
+.yms-btns .ymdt {
+  font-size: 74rpx;
+}
+.yms-btns image {
+  height: 96rpx;
+  width: 96rpx;
+}
+
+.yms-map {
+  width: 100%;
+  height: 400rpx;
+}
+
+.text-red {
+  color: #ef473a !important;
+}
+
+.text-green {
+  color: #33cd5f !important;
+}
+
+.text-blue {
+  color: #387ef5 !important;
+}
+
+.text-danger {
+  color: #ef473a !important;
+}
+
+.text-warning {
+  color: #F6BB42 !important;
+}
+
+.text-success {
+  color: #33cd5f !important;
+}
+
+.text-primary {
+  color: #387ef5 !important;
+}
+
+.text-ignore {
+  color: #aaa !important;
+}
+
+.largeX3 {
+  font-size: 54rpx;
+}
+
+.largeX2 {
+  font-size: 46rpx;
+}
+
+.large {
+  font-size: 34rpx;
+}
+
+.big {
+  font-size: 28rpx;
+}
+
+.normal {
+  font-size: 28rpx;
+}
+
+.small {
+  font-size: 24rpx;
+}
+
+.smaller {
+  font-size: 20rpx;
+}
+
+.wux-cell-group {
+  background-color: #f5f5f5;
+}
+
+page {
+  background-color: #FFF !important;
+}
+
+.yms-login {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+.yms-login .header {
+  background-color: #FFF;
+  position: relative;
+  display: flex;
+  height: 460rpx;
+  margin-top: 130rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.yms-login .header .avatar {
+  height: 220rpx;
+  width: 220rpx;
+  border-radius: 220rpx;
+}
+.yms-login .header .avatar, .yms-login .header .name {
+  margin-bottom: 10rpx;
+}
+.yms-login .header .sub-title {
+  color: #999;
+  font-size: 28rpx;
+}
+.yms-login .header .name {
+  font-size: 46rpx;
+}
+.yms-login .content {
+  flex-grow: 1;
+  background-color: inherit;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+.yms-login .content .wux-cell {
+  height: 100rpx;
+  font-size: 34rpx;
+}
+.yms-login .content .wux-cell .wux-input .wux-input__label {
+  color: #999;
+}
+.yms-login .content .wux-cell .wux-input input .input-placeholder {
+  color: #ddd;
+}
+
+/*# sourceMappingURL=login.wxss.map */

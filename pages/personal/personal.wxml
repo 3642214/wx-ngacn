@@ -1,2 +1,18 @@
 <!--pages/personal/personal.wxml-->
-<text>pages/personal/personal.wxml</text>
+
+<wxs src="../../comomLib/common.wxs" module="common" />
+
+<view class="yms-login">
+    <view class="header">
+        <image class="avatar" src="https://images.weserv.nl/?url={{userInfo.avatar}}" />
+        <view class="name">{{userInfo.username}} (uid:{{userInfo.uid}})</view>
+        <view class="sub-title">邮箱：{{userInfo.email}}</view>
+        <view class="sub-title">手机：{{userInfo.phone}}</view>
+        <view class="sub-title">注册日期：{{ common.formatYYMMDDHHmmSS(userInfo.regdate*1000) }}</view>
+    </view>
+
+    <view class="content">
+        <view class="sub-title">签名:</view>
+        <rich-text nodes=" {{ userInfo.sign }}"></rich-text>
+    </view>
+</view>

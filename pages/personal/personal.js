@@ -1,11 +1,16 @@
 // pages/personal/personal.js
+
+const app = getApp()
+let util = require('../../utils/util.js');
+let api = require('../../utils/api.js');
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        userInfo: null
     },
 
     /**
@@ -13,54 +18,22 @@ Page({
      */
     onLoad: function (options) {
 
-    },
+        util.sendTextGet(`${api.NUKE_URL}`, {
+            __lib: 'ucp',
+            __output: '14',
+            __act: 'get',
+            uid: util.getCookieUid()
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
+        }).then(res => {
+            this.setData({
+                userInfo: res.result[0]
+            })
+            console.log(JSON.stringify(res))
 
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
+        }).catch(ret => {
+            util.showErrToast(`${JSON.stringify(ret)}`)
+        })
 
     },
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

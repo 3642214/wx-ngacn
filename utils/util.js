@@ -270,6 +270,18 @@ function getLoginCode(code) {
     });
 }
 
+function getCookieUid() {
+    let str = getApp().globalData.cookie;
+
+    let uid = str.match(/ngaPassportUid=(\S*);/);
+    if (uid) {
+        return uid[1];
+    }
+    
+    uid =  str.match(/ngaPassportUid=(\S*)$/)[1];
+    return uid;
+}
+
 module.exports = {
     sendGet,
     sendPost,
@@ -290,4 +302,5 @@ module.exports = {
     getNowTime,
     getNowTimeStr,
     getLoginCode,
+    getCookieUid,
 }

@@ -89,7 +89,7 @@ Page({
         }
 
         app.globalData.cookie = self.data.userCookie;
-        util.sendTextGet(`${api.LOGIN_URL}?__lib=noti&__output=14&__act=get_all`, {}).then(res => {
+        util.sendTextGet(`${api.NUKE_URL}?__lib=noti&__output=14&__act=get_all`, {}).then(res => {
             console.log(JSON.stringify(res))
             if (res.result) {
                 console.log("保存token成功");
@@ -123,7 +123,7 @@ Page({
         });
         if (!argFlag) return;
 
-        util.sendTextPost(`${api.LOGIN_URL}?__lib=login&__act=login&name=${value.username}&password=${value.password}&captcha=${value.code}&type=phone&__output=14&__inchst=UTF-8&rid=_${self.data.randomCode}`, {}).then(res => {
+        util.sendTextPost(`${api.NUKE_URL}?__lib=login&__act=login&name=${value.username}&password=${value.password}&captcha=${value.code}&type=phone&__output=14&__inchst=UTF-8&rid=_${self.data.randomCode}`, {}).then(res => {
             console.log(`登录成功: ${JSON.stringify(res)}`);
             let uid = (res.result)[1];
             let token = (res.result)[2];

@@ -86,6 +86,7 @@ function isDoc(file) {
 }
 
 function fixName(name) {
+    name = name.toString()
     if (name.indexOf('#anony_') >= 0) {
         return "匿名用户" + name.substring(-4);
     }
