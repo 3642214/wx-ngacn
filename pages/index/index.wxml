@@ -18,6 +18,3 @@
     </wux-cell-group>
 </view>
 
-
-<wux-dialog id="wux-dialog" />
-<wux-dialog id="wux-dialog--alert" />

@@ -4,74 +4,44 @@ const app = getApp()
 let util = require('../../utils/util.js');
 let api = require('../../utils/api.js');
 
-import {
-  $wuxDialog
-} from '../../miniprogram_npm/wux-weapp/index'
-
 Page({
   data: {
     indexPage: 1,
     tzList: [],
-    dialog: null
+    fid: 0
   },
 
   onLoad: function (options) {
+    if (options.fid) {
+      this.setData({
+        fid: options.fid
+      })
+    }
+    if (options.title) {
+      wx.setNavigationBarTitle({
+        title: options.title,
+      })
+    }
+
     this.fresh();
   },
   fresh() {
-    let self = this;
-    if (app.globalData.cookie) {
-      self.listTZ(self.data.indexPage).then(res => {
-        self.setData({
-          tzList: res
-        })
-      }).then(ret => {
-        util.showErrToast(JSON.stringify(ret));
-      })
-    }
-  },
-  onShow() {
-    let self = this;
-    if (!app.globalData.cookie) {
-      self.data.dialog = $wuxDialog().open({
-        maskClosable: false,
-        resetOnClose: true,
-        zIndex: 0,
-        title: '提示',
-        content: '先登陆ngacn',
-        buttons: [{
-          text: '转登录页',
-          type: 'primary',
-          onTap(e) {
-            wx.navigateTo({
-              url: '../personal/login',
-            })
-          }
-        }, ],
-      })
-    } else {
-      if (self.data.dialog) {
-        self.data.dialog();
-        self.data.dialog = null;
-      }
-      if (self.data.tzList.length == 0) {
-        self.fresh();
-      }
-    }
-  },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
     let self = this;
     self.data.indexPage = 1;
     self.listTZ(self.data.indexPage).then(res => {
       self.setData({
         tzList: res
       })
-    }).catch(ret => {
-      util.showErrToast(ret.msg);
-    });
+    }).then(ret => {
+      util.showErrToast(JSON.stringify(ret));
+    })
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.fresh();
     util.stopPullDownRefresh();
   },
 
@@ -101,7 +71,7 @@ Page({
     let self = this;
     return new Promise(function (resolve, reject) {
       util.sendGet(api.LIST_TZ_URL, {
-        fid: -7,
+        fid: self.data.fid,
         page: page,
         lite: 'js',
         noprefix: 0

@@ -21,8 +21,8 @@
         "checkSiteMap": true,
         "uploadWithSourceMap": true,
         "compileHotReLoad": true,
-        "useMultiFrameRuntime": false,
-        "useApiHook": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
         "useApiHostProcess": false,
         "babelSetting": {
             "ignore": [],
@@ -39,7 +39,7 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.17.0",
-    "appid": "wx8b63f1e496511e9f",
+    "appid": "wxb36fa39a405f6ec0",
     "projectname": "ngacn",
     "debugOptions": {
         "hidedInDevtools": []

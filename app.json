@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/forum/forum",
         "pages/index/index",
         "pages/personal/personal",
         "pages/personal/login",
@@ -20,7 +21,7 @@
         "selectedColor": "#000",
         "list": [
             {
-                "pagePath": "pages/index/index",
+                "pagePath": "pages/forum/forum",
                 "text": "首页",
                 "iconPath": "static/tab-home.png",
                 "selectedIconPath": "static/tab-home-current.png"

@@ -1,0 +1,20 @@
+<!--pages/forum/forum.wxml-->
+<wux-cell-group title="我的收藏">
+    <wux-grids square col="3">
+        <block wx:for="{{ favorFroumList }}" wx:for-item="item" wx:key="_id">
+            <wux-grid bind:click="click" data-item="{{item}}">
+                <view class="ym-menu">
+                    <image class="image"
+                        src="https://images.weserv.nl/?url=http://img4.nga.178.com/ngabbs/nga_classic/f/app/{{ item.fid }}.png">
+                    </image>
+                    <view class="title">{{item.name}}</view>
+                </view>
+
+            </wux-grid>
+        </block>
+    </wux-grids>
+</wux-cell-group>
+
+
+<wux-dialog id="wux-dialog" />
+<wux-dialog id="wux-dialog--alert" />

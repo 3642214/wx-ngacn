@@ -10,7 +10,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo: null
+        userInfo: null,
+        avatar: null
     },
 
     /**
@@ -24,6 +25,7 @@ Page({
         this.fresh();
     },
     fresh() {
+        let self = this;
         if (app.globalData.cookie) {
             util.sendTextGet(`${api.NUKE_URL}`, {
                 __lib: 'ucp',
@@ -32,11 +34,9 @@ Page({
                 uid: util.getCookieUid()
 
             }).then(res => {
-                this.setData({
+                self.setData({
                     userInfo: res.result[0]
                 })
-                console.log(JSON.stringify(res))
-
             }).catch(ret => {
                 util.showErrToast(`${JSON.stringify(ret)}`)
             })
