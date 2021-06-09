@@ -262,8 +262,8 @@ function getNowTimeStr() {
     return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 }
 
-function getLoginCode(code, succ, fail) {
-    let url = `http://183.134.74.185:2222/addReferer/login_check_code.php?id=_${code}`;
+function getLoginCode(code) {
+    let url = `https://images.weserv.nl?url=http://183.134.74.185:2222/addReferer/login_check_code.php?id=_${code}`;
     console.log(url)
     return pro.downloadFile({
         url: url,

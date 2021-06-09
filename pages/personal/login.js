@@ -62,16 +62,8 @@ Page({
     changeCode() {
         let self = this;
         self.setData({
-            randomCode: Math.random()
-        })
-
-        util.getLoginCode(self.data.randomCode).then(res => {
-            console.log(JSON.stringify(res))
-            self.setData({
-                login_code_pic: res.tempFilePath
-            })
-        }).catch(ret => {
-            util.showErrToast(JSON.stringify(ret));
+            randomCode: Math.random(),
+            login_code_pic: `http://183.134.74.185:2222/addReferer/login_check_code.php?id=_${self.data.randomCode}`
         })
     },
     onChange(e) {
