@@ -61,10 +61,10 @@ Page({
     });
   },
   tzTap(e) {
-    // console.log('e :' + JSON.stringify(e.target.dataset.item));
+    console.log('e :' + JSON.stringify(e.target.dataset.item));
     let self = this;
     wx.navigateTo({
-      url: `./detailTZ?tid=${JSON.stringify(e.target.dataset.item.tid)}`,
+      url: `./detailTZ?tid=${JSON.stringify(e.target.dataset.item.tid)}&title=${e.target.dataset.item.subject}`,
     })
   },
   listTZ(page) {

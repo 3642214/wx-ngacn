@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "文档管理",
+  "navigationBarTitleText": "帖子详情",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 50,
   "usingComponents": {

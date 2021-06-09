@@ -21,6 +21,11 @@ Page({
                 tid: JSON.parse(options.tid)
             });
         }
+        if (options.title) {
+            wx.setNavigationBarTitle({
+                title: options.title,
+            })
+        }
     },
     /**
      * 生命周期函数--监听页面显示
