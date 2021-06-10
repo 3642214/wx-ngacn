@@ -6,11 +6,13 @@
     <block wx:for="{{ rList }}" wx:for-item="item" wx:key="_id" wx:for-index="index">
         <wux-cell-group>
             <wux-cell thumb="{{item.thumb}}" data-item="{{item}}">
-                {{index}}楼
-                {{ common.fixName(uDict[item.authorid].username) }}
-                {{item['postdate']}}
-                <wux-divider position="left" />
-                {{item['subject']}}
+                <view class="author">
+                    <span class="left">{{index}}楼</span>
+                    <span class="center"> {{ common.fixName(uDict[item.authorid].username) }}</span>
+                    <span class="right">{{item['postdate']}}</span>
+                </view>
+                <wux-divider show-text="{{ false }}" />
+                <!-- {{item['subject']}} -->
                 <rich-text nodes=" {{ common.fixPicAddr(item['content']) }}"></rich-text>
                 <wux-white-space></wux-white-space>
             </wux-cell>

@@ -61,9 +61,10 @@ Page({
     },
     changeCode() {
         let self = this;
+        let randomCode =  Math.random();
         self.setData({
-            randomCode: Math.random(),
-            login_code_pic: `http://183.134.74.185:2222/addReferer/login_check_code.php?id=_${self.data.randomCode}`
+            randomCode,
+            login_code_pic: `http://183.134.74.185:2222/addReferer/login_check_code.php?id=_${randomCode}`
         })
     },
     onChange(e) {
@@ -103,7 +104,7 @@ Page({
             setFieldsValue
         } = $wuxForm();
         const value = getFieldsValue();
-        console.log(JSON.stringify(value))
+        // console.log(JSON.stringify(value))
 
         let argFlag = true;
         Object.keys(value).forEach(key => {

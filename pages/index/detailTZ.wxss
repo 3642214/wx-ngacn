@@ -1,1 +1,21 @@
 /* pages/index/detailTZ.wxss */
+
+.author {
+    display: flex;
+    align-items: left;
+    font-size: 28rpx;
+    color: #999;
+  }
+  
+  .author .left {
+    width: 120rpx;
+  }
+  
+  .author .center {
+    flex: 1;
+  }
+  
+  .author .right {
+    text-align: right;
+    width: 320rpx;
+  }

@@ -103,6 +103,18 @@ function fixPicAddr(content) {
 
     content = content.replace(getRegExp('\[img\]\.', 'g'), '<img  style="max-width:100%;height:auto" src="https://img.nga.178.com/attachments');
     content = content.replace(getRegExp('\[\/img\]', 'g'), '"/>');
+
+    content = content.replace(getRegExp('\[b\]', 'g'), '<b>');
+    content = content.replace(getRegExp('\[\/b\]', 'g'), '</b>');
+
+    content = content.replace(getRegExp('\[del\]', 'g'), '<del>');
+    content = content.replace(getRegExp('\[\/del\]', 'g'), '</del>');
+
+    content = content.replace(getRegExp('\[quote\]', 'g'), '<blockquote>');
+    content = content.replace(getRegExp('\[\/quote\]', 'g'), '</blockquote>');
+
+
+
     // console.log(content)
     return content;
 }
