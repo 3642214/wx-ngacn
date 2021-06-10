@@ -12,3 +12,6 @@ login_code_pic: `http://183.134.74.185:2222/addReferer/login_check_code.php?id=_
 
 image class="avatar" src="http://183.134.74.185:2222/clearReferer\?url\={{userInfo.avatar}}" 
 头像照片，请求图片需要去除referer，不然403
+
+小程序已上线
+![gh_456c9154a51a_344](https://user-images.githubusercontent.com/7067644/121474777-246a8d80-c9f7-11eb-94b1-74b104561643.jpg)
