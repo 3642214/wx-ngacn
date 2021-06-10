@@ -6,10 +6,10 @@
     <block wx:for="{{ rList }}" wx:for-item="item" wx:key="_id" wx:for-index="index">
         <wux-cell-group>
             <wux-cell thumb="{{item.thumb}}" data-item="{{item}}">
-                {{ common.isAnony(uDict[item.authorid].username) }}
-                {{index}}楼 {{item['postdate']}}
+                {{index}}楼
+                {{ common.fixName(uDict[item.authorid].username) }}
+                {{item['postdate']}}
                 <wux-divider position="left" />
-
                 {{item['subject']}}
                 <rich-text nodes=" {{ common.fixPicAddr(item['content']) }}"></rich-text>
                 <wux-white-space></wux-white-space>
