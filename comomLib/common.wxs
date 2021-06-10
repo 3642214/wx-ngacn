@@ -99,21 +99,22 @@ function fixName(name) {
 }
 
 function fixPicAddr(content) {
+    //修改 [img] => <img>
     content = content.replace(getRegExp('\[img\]http', 'g'), '<img  style="max-width:100%;height:auto" src="http');
-
     content = content.replace(getRegExp('\[img\]\.', 'g'), '<img  style="max-width:100%;height:auto" src="https://img.nga.178.com/attachments');
     content = content.replace(getRegExp('\[\/img\]', 'g'), '"/>');
 
+    //修改 [b] => <b>
     content = content.replace(getRegExp('\[b\]', 'g'), '<b>');
     content = content.replace(getRegExp('\[\/b\]', 'g'), '</b>');
 
+    //修改 [del] => <del>
     content = content.replace(getRegExp('\[del\]', 'g'), '<del>');
     content = content.replace(getRegExp('\[\/del\]', 'g'), '</del>');
 
-    content = content.replace(getRegExp('\[quote\]', 'g'), '<blockquote>');
+    //修改 [quote] => <blockquote>
+    content = content.replace(getRegExp('\[quote\]', 'g'), '<blockquote style="background: #f9f9f9;margin: 1.5em 10px;padding: 0.5em 10px;quotes: "\201C""\201D""\2018""\2019";">');
     content = content.replace(getRegExp('\[\/quote\]', 'g'), '</blockquote>');
-
-
 
     // console.log(content)
     return content;

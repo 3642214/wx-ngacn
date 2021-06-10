@@ -1,21 +1,31 @@
 /* pages/index/detailTZ.wxss */
 
+.contain {
+  width: 100%;
+}
+
 .author {
-    display: flex;
-    align-items: left;
-    font-size: 28rpx;
-    color: #999;
-  }
-  
-  .author .left {
-    width: 120rpx;
-  }
-  
-  .author .center {
-    flex: 1;
-  }
-  
-  .author .right {
-    text-align: right;
-    width: 320rpx;
-  }
+  display: flex;
+  align-items: left;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.author .left {
+  width: 120rpx;
+}
+
+.author .center {
+  flex: 1;
+}
+
+.author .right {
+  text-align: right;
+  width: 320rpx;
+}
+
+
+.richText {
+  word-break: break-all;
+  white-space: pre-warp;
+}

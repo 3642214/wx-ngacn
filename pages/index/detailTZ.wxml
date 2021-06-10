@@ -2,7 +2,7 @@
 
 <wxs src="../../comomLib/common.wxs" module="common" />
 
-<view class="project-list">
+<view class="contain">
     <block wx:for="{{ rList }}" wx:for-item="item" wx:key="_id" wx:for-index="index">
         <wux-cell-group>
             <wux-cell thumb="{{item.thumb}}" data-item="{{item}}">
@@ -13,7 +13,7 @@
                 </view>
                 <wux-divider show-text="{{ false }}" />
                 <!-- {{item['subject']}} -->
-                <rich-text nodes=" {{ common.fixPicAddr(item['content']) }}"></rich-text>
+                <rich-text class="richText" nodes=" {{ common.fixPicAddr(item['content']) }}"></rich-text>
                 <wux-white-space></wux-white-space>
             </wux-cell>
         </wux-cell-group>

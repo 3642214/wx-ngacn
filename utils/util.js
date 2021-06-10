@@ -181,7 +181,7 @@ function sendRequest(url, method, responseType, data) {
                     let unit8Arr = new Uint8Array(res.data);
                     results = new encoding.TextDecoder('gbk').decode(res.data);
                     results = results.replace(/\t/g, '')
-                    console.log(results)
+                    // console.log(results)
                     results = JSON.parse(results);
                     results = results.data;
                 } else {

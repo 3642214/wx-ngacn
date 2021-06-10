@@ -76,7 +76,7 @@ Page({
         lite: 'js',
         noprefix: 0
       }).then(res => {
-        console.log(JSON.stringify(res));
+        // console.log(JSON.stringify(res));
         let newTzList = [];
         Object.values(res.__T).forEach(element => {
           newTzList.push(element)
