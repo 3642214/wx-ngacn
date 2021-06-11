@@ -82,7 +82,7 @@ Page({
     click(e) {
         console.log(e.currentTarget.dataset.item.name)
         wx.navigateTo({
-            url: `../index/index?fid=${e.currentTarget.dataset.item.fid}}&title=${e.currentTarget.dataset.item.name}`,
+            url: `../index/index?fid=${e.currentTarget.dataset.item.fid}&title=${e.currentTarget.dataset.item.name}`,
         })
     }
 

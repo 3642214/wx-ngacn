@@ -86,5 +86,10 @@ Page({
         reject(ret);
       });
     });
+  },
+  add() {
+    wx.navigateTo({
+      url: `./addTZ?fid=${this.data.fid}`,
+    })
   }
 })

@@ -187,7 +187,7 @@ function sendRequest(url, method, responseType, data) {
                 } else {
                     results = res.data;
 
-                    // console.log(results)
+                    console.log(results)
                     if (results.code != 0) {
                         reject(results)
                     }
@@ -277,6 +277,30 @@ function getCookieUid() {
     return uid;
 }
 
+function str2GBKUrlEncode(str) {
+    let arrBytes = new encoding.TextEncoder('gbk', {
+        NONSTANDARD_allowLegacyEncoding: true
+    }).encode(str);
+
+    let result = "";
+    for (var i = 0; i < arrBytes.length; i++) {
+        var tmp;
+        var num = arrBytes[i];
+        if (num < 0) {
+            //此处填坑，当byte因为符合位导致数值为负时候，需要对数据进行处理
+            tmp = (255 + num + 1).toString(16);
+        } else {
+            tmp = num.toString(16);
+        }
+        if (tmp.length == 1) {
+            tmp = "0" + tmp;
+        }
+        result += `%${tmp}`;
+    }
+    // console.log(result)
+    return result;
+}
+
 module.exports = {
     sendGet,
     sendPost,
@@ -297,4 +321,6 @@ module.exports = {
     getNowTime,
     getNowTimeStr,
     getCookieUid,
+    str2GBKUrlEncode,
+    dict2String,
 }

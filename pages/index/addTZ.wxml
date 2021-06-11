@@ -1,0 +1,29 @@
+<!--pages/index/addTZ.wxml-->
+
+<wxs src="../../comomLib/common.wxs" module="common" />
+
+
+    <wux-form id="wux-form">
+        <wux-cell-group>
+            <wux-cell hover-class="none">
+                <wux-field name="title" initialValue="{{ title }}">
+                    <wux-input label="标题" placeholder="请输入标题" />
+                </wux-field>
+            </wux-cell>
+        </wux-cell-group>
+
+
+        <wux-cell-group title="内容">
+            <wux-cell hover-class="none">
+                <wux-field name="des">
+                    <wux-textarea maxlength="1000" hasCount rows="9" cursorSpacing="80" placeholder="请输入内容" />
+                </wux-field>
+            </wux-cell>
+        </wux-cell-group>
+
+
+        <wux-wing-blank size="default">
+            <wux-button class="yms-login-btn" bind:click="formSubmit" block type="positive">提 交
+            </wux-button>
+        </wux-wing-blank>
+    </wux-form>

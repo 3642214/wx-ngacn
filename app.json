@@ -4,7 +4,8 @@
         "pages/index/index",
         "pages/personal/personal",
         "pages/personal/login",
-        "pages/index/detailTZ"
+        "pages/index/detailTZ",
+        "pages/index/addTZ"
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -12,7 +12,7 @@
                     <span class="right">{{item['postdate']}}</span>
                 </view>
                 <wux-divider show-text="{{ false }}" />
-                <!-- {{item['subject']}} -->
+                {{item['subject']}}
                 <rich-text class="richText" nodes=" {{ common.fixPicAddr(item['content']) }}"></rich-text>
                 <wux-white-space></wux-white-space>
             </wux-cell>
