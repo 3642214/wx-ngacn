@@ -100,7 +100,7 @@ function fixName(name) {
 
 function fixPicAddr(content) {
     //修改 [img] => <img>
-    content = content.replace(getRegExp('\[img\]http', 'g'), '<img  style="max-width:100%;height:auto" src="http');
+    content = content.replace(getRegExp('\[img\]http', 'g'), '<img  style="max-width:100%;height:auto" src="http://183.134.74.185:2222/clearReferer?url=http');
     content = content.replace(getRegExp('\[img\]\.', 'g'), '<img  style="max-width:100%;height:auto" src="http://183.134.74.185:2222/clearReferer?url=https://img.nga.178.com/attachments');
     content = content.replace(getRegExp('\[\/img\]', 'g'), '"/>');
 

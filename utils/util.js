@@ -185,7 +185,7 @@ function sendRequest(url, method, responseType, data) {
                     results = results.replace(/\n/g, '')
                     results = results.replace(/\r/g, '')
                     results = results.replace(re, '')
-                    console.log(results)
+                    // console.log(results)
                     results = JSON.parse(results);
                     results = results.data;
                 } else {

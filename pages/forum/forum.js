@@ -7,8 +7,8 @@ let api = require('../../utils/api.js');
 
 import {
     $wuxDialog
-  } from '../../miniprogram_npm/wux-weapp/index'
-  
+} from '../../miniprogram_npm/wux-weapp/index'
+
 
 Page({
 
@@ -72,6 +72,11 @@ Page({
             noprefix: 0
         }).then(res => {
             console.log(JSON.stringify(res));
+
+            res.result.forEach(froum => {
+                froum.picStr = `https://images.weserv.nl/?url=http://img4.nga.178.com/ngabbs/nga_classic/f/app/${froum.fid}.png`
+            });
+
             self.setData({
                 favorFroumList: res.result
             })
@@ -84,6 +89,24 @@ Page({
         wx.navigateTo({
             url: `../index/index?fid=${e.currentTarget.dataset.item.fid}&title=${e.currentTarget.dataset.item.name}`,
         })
+    },
+    checkIn() {
+        util.sendTextGet(api.NUKE_URL, {
+            __lib: 'check_in',
+            __act: 'check_in',
+            __output: 14
+        }).then(res => {
+            console.log(JSON.stringify(res));
+        }).catch(ret => {
+            util.showErrToast(JSON.stringify(ret));
+        });
+    },
+    imageError(e) {
+        let self = this;
+        let index = e.currentTarget.dataset.index;
+        // console.log(JSON.stringify(e))
+        self.setData({
+            [`favorFroumList[${index}].picStr`]: "/static/default.png"
+        });
     }
-
 })
