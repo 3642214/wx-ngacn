@@ -79,7 +79,7 @@ Page({
             }).then(res => {
                 self.setData({
                     hasMore: res.__R__ROWS == res.__R__ROWS_PAGE,
-                    uDict: res.__U
+                    uDict: {...self.data.uDict,...res.__U}
                 })
 
                 let newTzList = [];
