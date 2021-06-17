@@ -18,6 +18,6 @@
     </wux-cell-group>
 </view>
 
-<view bindtap="add" class="tz-add">
+<!-- <view bindtap="add" class="tz-add">
     <image src="/static/addBtn.png"></image>
-</view>
+</view> -->

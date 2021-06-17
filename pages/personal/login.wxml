@@ -27,12 +27,12 @@
         <wux-form id="wux-form">
             <wux-cell-group title="登陆">
                 <wux-cell hover-class="none">
-                    <wux-field name="username" type="text" value='1111'>
+                    <wux-field name="username" type="text" value=''>
                         <wux-input label="用户名：" placeholder="输入用户名" />
                     </wux-field>
                 </wux-cell>
                 <wux-cell hover-class="none">
-                    <wux-field name="password" type="text" value='22222'>
+                    <wux-field name="password" type="text" value=''>
                         <wux-input label="密码：" placeholder="输入密码" password>
                         </wux-input>
                     </wux-field>
