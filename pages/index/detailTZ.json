@@ -17,6 +17,7 @@
     "wux-tag": "../../miniprogram_npm/wux-weapp/tag/index",
     "wux-divider": "../../miniprogram_npm/wux-weapp/divider/index",
     "wux-card": "../../miniprogram_npm/wux-weapp/card/index",
-    "wux-wing-blank": "../../miniprogram_npm/wux-weapp/wing-blank/index"
+    "wux-wing-blank": "../../miniprogram_npm/wux-weapp/wing-blank/index",
+    "mp-html": "../../miniprogram_npm/mp-html/index"
   }
 }

@@ -13,7 +13,8 @@
                 </view>
                 <wux-divider show-text="{{ false }}" />
                 {{item['subject']}}
-                <rich-text class="richText" nodes=" {{ common.fixPicAddr(item['content']) }}"></rich-text>
+                <!-- <rich-text class="richText" nodes=" {{ common.fixPicAddr(item['content']) }}"></rich-text> -->
+                <mp-html class="richText" lazy-load content="{{common.fixPicAddr(item['content'])}}" />
                 <wux-white-space></wux-white-space>
             </wux-cell>
         </wux-cell-group>

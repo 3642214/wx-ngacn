@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "minapp-promise": "^0.1.0",
+    "mp-html": "^2.1.3",
     "wux-weapp": "^3.8.8"
   }
 }

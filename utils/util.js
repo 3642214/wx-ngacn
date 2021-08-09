@@ -130,32 +130,39 @@ const formatNumber = n => {
 };
 
 function sendGet(url, data) {
-    return sendRequest(url, 'GET', "arraybuffer", data);
+    return sendRequest(undefined,url, 'GET', "arraybuffer", data);
 }
 
 function sendPost(url, data) {
-    return sendRequest(url, 'POST', "arraybuffer", data);
+    return sendRequest(undefined,url, 'POST', "arraybuffer", data);
 }
 
 function sendPut(url, data) {
-    return sendRequest(url, 'PUT', "arraybuffer", data);
+    return sendRequest(undefined,url, 'PUT', "arraybuffer", data);
+}
+
+function sendTextPostWithHost(host,url, data) {
+    return sendRequest(host,url, 'POST', 'text', data);
 }
 
 function sendTextPost(url, data) {
-    return sendRequest(url, 'POST', 'text', data);
+    return sendRequest(undefined,url, 'POST', 'text', data);
 }
 
 function sendTextGet(url, data) {
-    return sendRequest(url, 'GET', 'text', data);
+    return sendRequest(undefined,url, 'GET', 'text', data);
 }
 
-
-function sendRequest(url, method, responseType, data) {
+function sendRequest(host,url, method, responseType, data) {
     return new Promise(function (resolve, reject) {
         if (!url) {
             return;
         }
-        url = httpsServerHost + url;
+        if(host){
+            url = host + url;
+        }else{
+            url = httpsServerHost + url;
+        }
 
         // console.log(`url ${method} 请求: ${url} ,${JSON.stringify(data) } `);
         if (method == 'GET') {
@@ -307,7 +314,7 @@ function str2GBKUrlEncode(str) {
 
 module.exports = {
     sendGet,
-    sendPost,
+    sendPost,sendTextPostWithHost,
     sendTextPost,
     sendTextGet,
     sendPut,

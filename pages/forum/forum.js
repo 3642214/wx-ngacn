@@ -66,11 +66,10 @@ Page({
     },
     fresh() {
         let self = this;
-        util.sendTextGet(api.APP_API_URL, {
+        util.sendTextPostWithHost('https://dx.emindt.cn:3333/addReferer',`${api.APP_API_URL}?${util.dict2String({
             __lib: 'favorforum',
-            __act: 'sync',
-            noprefix: 0
-        }).then(res => {
+            __act: 'sync'
+        })}`, {}).then(res => {
             console.log(JSON.stringify(res));
 
             res.result.forEach(froum => {
@@ -96,6 +95,7 @@ Page({
             __act: 'check_in',
             __output: 14
         }).then(res => {
+            util.showSuccToast("签到成功");
             console.log(JSON.stringify(res));
         }).catch(ret => {
             util.showErrToast(JSON.stringify(ret));
