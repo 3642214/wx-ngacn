@@ -19,11 +19,13 @@ image class="avatar" src="http://183.134.74.185:2222/clearReferer\?url\={{userIn
 2.查看收藏的板块
 3.看帖子
 4.看自己个人信息
+5.发帖
+6.签到任务
 ```
 
 ```
 todo：
-1.发帖
+1.发帖(done)
 2.回帖
 3.优化显示
 。。。
